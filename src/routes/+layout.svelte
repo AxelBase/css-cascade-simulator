@@ -234,13 +234,6 @@
         border: 1px solid #eee;
     }
 
-    .dropdown-header {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-        color: #888;
-        font-weight: 600;
-    }
-
     .bmac-option {
         padding: 0.75rem 1rem;
         text-decoration: none;
