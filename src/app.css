@@ -1,0 +1,129 @@
+/* src/app.css */
+
+:root {
+    /* Theme Colors */
+    --axel-green: #2D572C;
+    --axel-green-light: #4a7c49;
+    --axel-bg: #f0f7f0;
+    --axel-white: #ffffff;
+    --axel-shadow: 0 8px 24px rgba(45, 87, 44, 0.15);
+    
+    /* Bootstrap Overrides */
+    --bs-body-bg: var(--axel-bg);
+    --bs-body-color: #333;
+    --bs-primary: var(--axel-green);
+    --bs-primary-rgb: 45, 87, 44;
+}
+
+body {
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    /* Padding bottom to account for fixed footer */
+    padding-bottom: 80px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--axel-green);
+}
+
+/* --- Bubbly & Smooth Components --- */
+
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--axel-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(45, 87, 44, 0.25);
+}
+
+.card-header {
+    background-color: var(--axel-green);
+    color: white;
+    border-bottom: none;
+    padding: 1rem 1.5rem;
+}
+
+.btn {
+    border-radius: 50px; /* Bubbly pill shape */
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--axel-green);
+    border-color: var(--axel-green);
+}
+
+.btn-primary:hover {
+    background-color: var(--axel-green-light);
+    border-color: var(--axel-green-light);
+    transform: scale(1.05);
+}
+
+.form-control, .form-select {
+    border-radius: 15px;
+    border: 2px solid #e0e0e0;
+    padding: 0.7rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--axel-green);
+    box-shadow: 0 0 0 0.25rem rgba(45, 87, 44, 0.2);
+}
+
+/* --- Code & Tech Styles --- */
+
+.code-block {
+    font-family: "Fira Code", "Courier New", monospace;
+    background: #1e2b1e; /* Dark green-black */
+    color: #f8f8f2;
+    padding: 1rem;
+    border-radius: 15px;
+    overflow-x: auto;
+    border: 2px solid var(--axel-green);
+}
+
+.specificity-badge {
+    font-family: "Fira Code", monospace;
+    font-weight: bold;
+    background-color: rgba(45, 87, 44, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    color: var(--axel-green);
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--axel-bg); 
+}
+::-webkit-scrollbar-thumb {
+    background: #8fae8e; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--axel-green); 
+}
+
+/* --- Utility --- */
+.hover-opacity-100:hover {
+    opacity: 1;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}

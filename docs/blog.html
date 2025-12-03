@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>AxelBase – CSS Cascade Simulator</title>
+        <link rel="icon" href="./AxelLab-Logo.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+            rel="stylesheet"
+        />
+
+        
+		<link href="./_app/immutable/assets/0.ydCnfofU.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/4.DSc85pE-.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.D7lhEDrG.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BLC1EdR9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/C6zHNjeE.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/C8O8VHL8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/D7cVgNbT.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BJvGMQg6.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.CPFV8HVT.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CXdT0DGt.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DwQ38Pnn.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BAQShxWl.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BKmlMARk.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.CJE712UM.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BNaWgpbO.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DbqubWW0.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BVQNnWQs.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BDbPYCkS.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/4.cO0nJG8g.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DroPHc3G.js"><!--u4k2t--><meta name="description" content="Deep technical articles on CSS specificity, cascade behavior, selector matching, and advanced debugging techniques."/><!----><title>Blog | CSS Cascade Simulator Insights</title>
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents"><!--[--><!--[--><!----><header class="navbar-sticky svelte-12qhfyh"><nav class="container nav-container svelte-12qhfyh"><div class="nav-left svelte-12qhfyh"><a href="./" class="brand-link svelte-12qhfyh"><img src="./AxelLab-Logo.ico" alt="AxelLab" class="brand-logo svelte-12qhfyh"/> <span class="brand-text svelte-12qhfyh">AxelBase</span></a> <div class="bmac-wrapper svelte-12qhfyh"><button class="bmac-button svelte-12qhfyh" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-hot-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6H.5ZM13 12.5a2.01 2.01 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5Z"></path><path d="m4.4.8-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.313 3.313 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 3.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.033A.5.5 0 0 1 4.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.313 3.313 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 6.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.033A.5.5 0 0 1 7.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.313 3.313 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 9.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.033A.5.5 0 0 1 10.4.8Z"></path></svg> <span>Buy me a coffee</span></button> <!--[!--><!--]--></div></div> <ul class="nav-links svelte-12qhfyh"><li><a class="nav-link svelte-12qhfyh" href="./">Home</a></li> <li><a class="nav-link svelte-12qhfyh" href="./#about">About</a></li> <li><a class="nav-link svelte-12qhfyh" href="./#how-to">How to use</a></li> <li><a class="nav-link svelte-12qhfyh" href="./#faq">FAQ</a></li> <li><a class="nav-link svelte-12qhfyh" href="./blog">Blog</a></li></ul></nav></header> <main class="content-wrapper"><!--[--><!----><div class="container py-5 blog-index"><header class="text-center mb-5"><h1 class="display-4 fw-bold"><i class="bi bi-journal-code"></i> Blog: Cascade Deep Dives</h1> <p class="lead text-muted col-lg-8 mx-auto">Advanced technical insights into CSS specificity, cascade resolution, selector behavior, and how browsers determine the winning style — explained with clarity.</p></header> <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"><!--[--><div class="col"><a href="./blog/posts/post1" class="text-decoration-none h-100"><div class="card h-100 shadow-sm border-0 hover-shadow transition svelte-u4k2t"><div class="card-body d-flex flex-column"><h3 class="card-title h5 fw-bold text-primary mb-3">Understanding CSS Specificity: The Core Algorithm</h3> <p class="card-text text-muted flex-grow-1 small">A deep dive into how browsers calculate specificity using the (a,b,c) scoring system and why IDs beat classes.</p> <div class="mt-auto pt-3"><span class="text-primary fw-semibold">Read Article <i class="bi bi-arrow-right"></i></span></div></div></div></a></div><div class="col"><a href="./blog/posts/post2" class="text-decoration-none h-100"><div class="card h-100 shadow-sm border-0 hover-shadow transition svelte-u4k2t"><div class="card-body d-flex flex-column"><h3 class="card-title h5 fw-bold text-primary mb-3">Why Source Order Only Matters When Specificity Ties</h3> <p class="card-text text-muted flex-grow-1 small">Exploring the critical rule that later rules win only when specificity scores are identical.</p> <div class="mt-auto pt-3"><span class="text-primary fw-semibold">Read Article <i class="bi bi-arrow-right"></i></span></div></div></div></a></div><div class="col"><a href="./blog/posts/post3" class="text-decoration-none h-100"><div class="card h-100 shadow-sm border-0 hover-shadow transition svelte-u4k2t"><div class="card-body d-flex flex-column"><h3 class="card-title h5 fw-bold text-primary mb-3">Compound Selectors: When "div#header.active" Beats "#header"</h3> <p class="card-text text-muted flex-grow-1 small">How combining element, ID, and class selectors creates exponentially higher specificity.</p> <div class="mt-auto pt-3"><span class="text-primary fw-semibold">Read Article <i class="bi bi-arrow-right"></i></span></div></div></div></a></div><div class="col"><a href="./blog/posts/post4" class="text-decoration-none h-100"><div class="card h-100 shadow-sm border-0 hover-shadow transition svelte-u4k2t"><div class="card-body d-flex flex-column"><h3 class="card-title h5 fw-bold text-primary mb-3">The Hidden Power of the Element Selector</h3> <p class="card-text text-muted flex-grow-1 small">Why even a single tag name like "div" contributes to specificity — and when it decides the winner.</p> <div class="mt-auto pt-3"><span class="text-primary fw-semibold">Read Article <i class="bi bi-arrow-right"></i></span></div></div></div></a></div><div class="col"><a href="./blog/posts/post5" class="text-decoration-none h-100"><div class="card h-100 shadow-sm border-0 hover-shadow transition svelte-u4k2t"><div class="card-body d-flex flex-column"><h3 class="card-title h5 fw-bold text-primary mb-3">Testing Edge Cases: Pseudo-classes, Attributes, and Universal Selectors</h3> <p class="card-text text-muted flex-grow-1 small">What happens when selectors include :hover, [type="text"], or * — and how specificity handles them.</p> <div class="mt-auto pt-3"><span class="text-primary fw-semibold">Read Article <i class="bi bi-arrow-right"></i></span></div></div></div></a></div><div class="col"><a href="./blog/posts/post6" class="text-decoration-none h-100"><div class="card h-100 shadow-sm border-0 hover-shadow transition svelte-u4k2t"><div class="card-body d-flex flex-column"><h3 class="card-title h5 fw-bold text-primary mb-3">Visualizing the Cascade: How This Simulator Works Under the Hood</h3> <p class="card-text text-muted flex-grow-1 small">Step-by-step breakdown of selector matching, specificity comparison, and winner selection logic.</p> <div class="mt-auto pt-3"><span class="text-primary fw-semibold">Read Article <i class="bi bi-arrow-right"></i></span></div></div></div></a></div><div class="col"><a href="./blog/posts/post7" class="text-decoration-none h-100"><div class="card h-100 shadow-sm border-0 hover-shadow transition svelte-u4k2t"><div class="card-body d-flex flex-column"><h3 class="card-title h5 fw-bold text-primary mb-3">Mastering Specificity: Best Practices for Predictable CSS</h3> <p class="card-text text-muted flex-grow-1 small">Real-world strategies to avoid specificity wars and write maintainable, debuggable styles.</p> <div class="mt-auto pt-3"><span class="text-primary fw-semibold">Read Article <i class="bi bi-arrow-right"></i></span></div></div></div></a></div><!--]--></div></div><!----><!--]--></main> <footer class="footer-fixed svelte-12qhfyh"><div class="container footer-content svelte-12qhfyh"><span>© 2025 AxelBase Markdown to HTML Converter</span> <div class="footer-links svelte-12qhfyh"><a href="./privacy" class="svelte-12qhfyh">Privacy</a> <span class="separator svelte-12qhfyh">•</span> <a href="./terms" class="svelte-12qhfyh">Terms</a></div></div></footer><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1qn2q48 = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						assets: "/css-cascade-simulator"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.D7lhEDrG.js"),
+						import("./_app/immutable/entry/app.CPFV8HVT.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 4],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
