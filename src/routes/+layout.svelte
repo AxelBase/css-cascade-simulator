@@ -4,20 +4,20 @@
     import { page } from '$app/stores';
     import { fly } from 'svelte/transition';
 
-    const paypalUsername = 'AxelLab427'; // You said you would enter this later
-    const donationAmounts = [1, 3, 5, 10];
-    
+    const currentYear = new Date().getFullYear();
+    const buymeacoffeeUsername = 'axelbase';      // ← your Buy Me a Coffee username
+
     let isDropdownOpen = false;
-    
+
     function toggleDropdown() {
         isDropdownOpen = !isDropdownOpen;
     }
-    
+
     function closeDropdown() {
         isDropdownOpen = false;
     }
-    
-    // Click Outside Directive
+
+    // Click outside directive
     function clickOutside(node: HTMLElement) {
         const handleClick = (event: MouseEvent) => {
             if (node && !node.contains(event.target as Node)) {
@@ -32,10 +32,8 @@
         };
     }
 
-    // Scroll offset helper for anchor links
+    // Smooth scroll for anchor links when already on home page
     function scrollToSection(id: string) {
-        // If we are not on home, go to home first (handled by standard href), 
-        // but if we are on home, scroll smoothly.
         if ($page.url.pathname === base + '/' || $page.url.pathname === base) {
             const element = document.getElementById(id);
             if (element) {
@@ -59,28 +57,71 @@
                 <span class="brand-text">AxelBase</span>
             </a>
 
-            <div class="bmac-wrapper" use:clickOutside on:click_outside={closeDropdown}>
-                <button class="bmac-button" on:click={toggleDropdown} aria-expanded={isDropdownOpen}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-hot-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6H.5ZM13 12.5a2.01 2.01 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5Z"/>
-                        <path d="m4.4.8-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.313 3.313 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 3.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.033A.5.5 0 0 1 4.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.313 3.313 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 6.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.033A.5.5 0 0 1 7.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.313 3.313 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 9.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.033A.5.5 0 0 1 10.4.8Z"/>
+            <!-- Buy Me a Coffee + Bitcoin Dropdown -->
+            <div class="bmac-wrapper position-relative" use:clickOutside on:click_outside={closeDropdown}>
+                <button
+                    class="bmac-button d-flex align-items-center gap-2"
+                    on:click={toggleDropdown}
+                    aria-expanded={isDropdownOpen}
+                    aria-label="Support AxelBase"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2,21V19H20V21H2M20,8V5H4V8H20M20,10H4V13C4,14.38 4.5,15.63 5.31,16.58L11.64,19H12.36L18.69,16.58C19.5,15.63 20,14.38 20,13V10M16,2H8V4H16V2Z" />
                     </svg>
-                    <span>Buy me a coffee</span>
+                    <span class="d-none d-sm-inline">Buy me a coffee</span>
                 </button>
-            
+
                 {#if isDropdownOpen}
-                <div class="bmac-dropdown" transition:fly={{ y: 10, duration: 250 }}>
-                    {#each donationAmounts as amount}
+                <div
+                    class="bmac-dropdown mt-2"
+                    transition:fly={{ y: 10, duration: 220 }}
+                >
                     <a
-                        href="https://paypal.me/{paypalUsername}/{amount}"
+                        href="https://buymeacoffee.com/{buymeacoffeeUsername}"
                         target="_blank"
                         rel="noopener noreferrer"
                         on:click={closeDropdown}
-                        class="bmac-option"
                     >
-                        ${amount}
+                        <span class="amount">$3</span> One Coffee
                     </a>
-                    {/each}
+
+                    <a
+                        href="https://buymeacoffee.com/{buymeacoffeeUsername}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        on:click={closeDropdown}
+                    >
+                        <span class="amount">$5</span> Two Coffees
+                    </a>
+
+                    <a
+                        href="https://buymeacoffee.com/{buymeacoffeeUsername}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        on:click={closeDropdown}
+                    >
+                        <span class="amount">$10</span> Three Coffees
+                    </a>
+
+                    <a
+                        href="https://buymeacoffee.com/{buymeacoffeeUsername}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        on:click={closeDropdown}
+                        class="custom-amount"
+                    >
+                        Custom Amount
+                    </a>
+
+                    <a
+                        href="bitcoin:bc1q3p0e6vt492m4w4fpz5m2cl4zcfuqqkgaj6myc9?label=AxelBase&message=Buy%20me%20a%20coffee"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        on:click={closeDropdown}
+                        class="custom-amount bitcoin-option"
+                    >
+                        Buy via Crypto (Bitcoin)
+                    </a>
                 </div>
                 {/if}
             </div>
@@ -102,7 +143,7 @@
 
 <footer class="footer-fixed">
     <div class="container footer-content">
-        <span>© {new Date().getFullYear()} AxelBase Markdown to HTML Converter</span>
+        <span>© {currentYear} AxelBase Crypto Price Target Calculator</span>
         <div class="footer-links">
             <a href="{base}/privacy">Privacy</a>
             <span class="separator">•</span>
@@ -112,7 +153,9 @@
 </footer>
 
 <style>
-    /* Navbar Styles */
+    /* ───────────────────────────────────────────────
+       Navbar & General Layout (from File 2)
+    ─────────────────────────────────────────────── */
     .navbar-sticky {
         position: sticky;
         top: 0;
@@ -154,7 +197,6 @@
         letter-spacing: -0.5px;
     }
 
-    /* Links */
     .nav-links {
         display: flex;
         list-style: none;
@@ -192,72 +234,93 @@
         width: 100%;
     }
 
-    /* Buy Me A Coffee Button */
-    .bmac-wrapper {
-        position: relative;
-    }
-
+    /* ───────────────────────────────────────────────
+       Buy Me a Coffee Button & Dropdown (File 1 style + File 2 colors)
+    ─────────────────────────────────────────────── */
     .bmac-button {
-        background-color: #FFDD00;
-        color: #000;
+        background: var(--axel-green);
+        color: white;
         border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        font-family: 'Nunito', sans-serif;
+        padding: 0.6rem 1.25rem;
+        border-radius: 50px;
         font-weight: 700;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(255, 221, 0, 0.3);
-        transition: transform 0.2s, box-shadow 0.2s;
+        font-size: 0.94rem;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 12px rgba(45, 87, 44, 0.25);
     }
 
     .bmac-button:hover {
+        background: var(--axel-green-light);
         transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(255, 221, 0, 0.4);
+        box-shadow: 0 7px 18px rgba(45, 87, 44, 0.35);
     }
 
     .bmac-dropdown {
         position: absolute;
-        top: 120%;
-        left: 0;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 245px;
         background: white;
-        min-width: 180px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        padding: 0.5rem;
-        display: flex;
-        flex-direction: column;
+        border-radius: 16px;
+        box-shadow: 0 12px 32px rgba(45, 87, 44, 0.22);
+        overflow: hidden;
+        border: 1px solid rgba(45, 87, 44, 0.12);
         z-index: 1040;
-        border: 1px solid #eee;
     }
 
-    .bmac-option {
-        padding: 0.75rem 1rem;
+    .bmac-dropdown a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 22px;
+        color: #333;
         text-decoration: none;
+        font-size: 0.98rem;
+        transition: all 0.2s ease;
+    }
+
+    .bmac-dropdown a:hover {
+        background: rgba(45, 87, 44, 0.07);
         color: var(--axel-green);
+        padding-left: 30px;
+    }
+
+    .bmac-dropdown .amount {
+        font-weight: 800;
+        color: var(--axel-green);
+        font-size: 1.14rem;
+        min-width: 50px;
+    }
+
+    .bmac-dropdown .custom-amount {
         font-weight: 700;
-        border-radius: 10px;
-        transition: background 0.2s;
-        text-align: center;
+        color: var(--axel-green);
+        border-top: 1px solid #eee;
+        justify-content: center !important;
+        padding: 14px 22px;
+        margin-top: 4px;
     }
 
-    .bmac-option:hover {
-        background-color: #e8f5e9;
+    .bitcoin-option {
+        color: #f7931a !important;
+        font-weight: 700 !important;
     }
 
-    /* Fixed Footer */
+    .bitcoin-option:hover {
+        background: rgba(249, 166, 38, 0.08) !important;
+        color: #e67e22 !important;
+    }
+
+    /* ───────────────────────────────────────────────
+       Footer (from File 2)
+    ─────────────────────────────────────────────── */
     .footer-fixed {
         position: relative;
-        bottom: 0;
-        left: 0;
         width: 100%;
         background-color: var(--axel-green);
         color: white;
-        padding: 1rem 0;
-        z-index: 1020;
+        padding: 1.1rem 0;
         box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
     }
 
@@ -265,11 +328,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 0.9rem;
+        font-size: 0.92rem;
     }
 
     .footer-links a {
-        color: rgba(255,255,255,0.8);
+        color: rgba(255,255,255,0.85);
         text-decoration: none;
         transition: color 0.2s;
     }
@@ -280,7 +343,7 @@
     }
 
     .separator {
-        margin: 0 0.5rem;
+        margin: 0 0.6rem;
         color: rgba(255,255,255,0.4);
     }
-</style>
+</style>    

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://axelbase.github.io/css-cascade-simulator/sitemap.xml
+Sitemap: https://css-cascade-simulator.vercel.app/sitemap.xml
